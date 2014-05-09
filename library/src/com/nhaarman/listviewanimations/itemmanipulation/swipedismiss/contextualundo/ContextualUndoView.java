@@ -18,6 +18,7 @@ package com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.contextual
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -37,7 +38,8 @@ public class ContextualUndoView extends FrameLayout {
     }
 
     private void initUndo(final int undoLayoutResId, final int countDownTextViewResId) {
-        mUndoView = View.inflate(getContext(), undoLayoutResId, null);
+    	LayoutInflater i = LayoutInflater.from(getContext());
+        mUndoView = i.inflate(undoLayoutResId, this, false);
         addView(mUndoView);
 
         if (countDownTextViewResId != -1) {
